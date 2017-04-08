@@ -6,8 +6,9 @@ public class LibraryTester {
 		String test = "abcdefg";
 		
 		String n = test.toString();
-		n = "33";
+		Object x = n;
 		
-		System.out.println(n);
+		if(x instanceof String)
+			System.out.println(x);
 	}
 }

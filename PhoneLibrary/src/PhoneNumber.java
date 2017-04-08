@@ -34,7 +34,7 @@ public class PhoneNumber {
 	////////////////////////////////////////////////////////////////////////////
 	/* MEMBER Variables */
 	
-	private String phoneNumber;
+	private String 			phoneNumber;
 	
 	
 	////////////////////////////////////////////////////////////////////////////
@@ -52,7 +52,7 @@ public class PhoneNumber {
 	
 	/**
 	 * Constructs a phone number with a given number.
-	 * @param phoneNumber phone number.
+	 * @param phoneNumber The Phone number string.
 	 */
 	PhoneNumber(String phoneNumber) throws WrongSyntaxException
 	{
@@ -64,8 +64,8 @@ public class PhoneNumber {
 
 	/**
 	 * Sets the phone number. Note that if wrong syntax, it throw the exception.
-	 * @param phoneNumber phone number.
-	 * @throws WrongSyntaxException signal if the phone number string is wrong syntax.
+	 * @param phoneNumber The phone number string.
+	 * @throws WrongSyntaxException Signal if the phone number string is wrong syntax.
 	 */
 	public void setPhoneNumber(String phoneNumber) throws WrongSyntaxException
 	{
@@ -81,6 +81,18 @@ public class PhoneNumber {
 		{
 			// throw exception
 			throw new WrongSyntaxException();
+		}
+	}
+	
+	/**
+	 * Sets the phone number by the instance of the PhoneNumber class.
+	 * @param phoneNumber the instance of the phone number to set.
+	 */
+	public void setPhoneNumber(PhoneNumber phoneNumber)
+	{
+		if(phoneNumber != null)
+		{
+			this.phoneNumber = phoneNumber.phoneNumber;
 		}
 	}
 	
@@ -171,6 +183,34 @@ public class PhoneNumber {
 	public String toString()
 	{
 		return phoneNumber;
+	}
+	
+	/**
+	 * Compares two phone number for ordering.
+	 * @param phoneNumber The phone number to be compared.
+	 * @return the value 0 if this phone number is equal to the argument phone
+	 * number; a value less than 0 if this phone number is lexicographically
+	 * less than the argument phone number; a value greater than 0 if this 
+	 * phone number is lexicographically greater than the argument phone number.
+	 */
+	public int compareTo(PhoneNumber phoneNumber)
+	{
+		return this.phoneNumber.compareTo(phoneNumber.phoneNumber);
+	}
+	
+	/**
+	 * Compares this phone number to the specified object. The result is true if
+	 * and only if the argument is instance of PhoneNumber and phone number is 
+	 * equals to this phone number.
+	 * @param obj The object to compare this phone number against
+	 * @return true if the argument is instance of PhoneNumber and the phone
+	 * number is equals to this phone number, and false otherwise. 
+	 */
+	public boolean equals(Object obj)
+	{
+		if(obj instanceof PhoneNumber)
+			return this.phoneNumber == ((PhoneNumber) obj).phoneNumber;
+		return false;
 	}
 	
 	

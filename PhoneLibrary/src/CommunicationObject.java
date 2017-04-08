@@ -15,8 +15,8 @@ public class CommunicationObject {
 	////////////////////////////////////////////////////////////////////////////
 	/* MEMBER Variables */
 	
-	private PhoneNumber sender, receiver;
-	private Date communicationTime;
+	private PhoneNumber 	sender, receiver;
+	private Date 			communicationTime;
 	
 	
 	////////////////////////////////////////////////////////////////////////////
@@ -138,18 +138,3 @@ public class CommunicationObject {
 		return communicationTime.compareTo(object.communicationTime);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
