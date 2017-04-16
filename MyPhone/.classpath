@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/ksw38/Desktop/Development/Git_Repositories/oodp-term-project2/MyPhone/src/DJNativeSwing.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ksw38/Desktop/Development/Git_Repositories/oodp-term-project2/MyPhone/src/DJNativeSwing-SWT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ksw38/Desktop/Development/Git_Repositories/oodp-term-project2/MyPhone/src/DJNativeSwing-SWTDemo.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ksw38/Desktop/Development/Git_Repositories/oodp-term-project2/PhoneLibrary/release/PhoneLibrary.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

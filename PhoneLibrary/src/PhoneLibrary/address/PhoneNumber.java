@@ -1,3 +1,4 @@
+package phoneLibrary.address;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,7 +13,7 @@ import java.util.regex.Pattern;
  * 
  ******************************************************************************/
 
-public class PhoneNumber {
+public class PhoneNumber implements Comparable<PhoneNumber> {
 	
 	////////////////////////////////////////////////////////////////////////////
 	/* CONSTANT Variables */
@@ -21,7 +22,7 @@ public class PhoneNumber {
 	 *  Regular expression for checking the phone number string is right syntax.
 	 *  Only numbers, hyphens, and space are allowed.
 	 */
-	public static final String PHONE_NUMBER_EXPRESSION = "^[0-9\\-\\s]*$";
+	public static final String PHONE_NUMBER_REGULAR_EXPRESSION = "^[0-9\\-\\s]*$";
 	
 	/**
 	 *  regular expression for dividing area or phone code from phone number
@@ -43,7 +44,7 @@ public class PhoneNumber {
 	/**
 	 * Constructs a phone number with empty number.
 	 */
-	PhoneNumber()
+	public PhoneNumber()
 	{
 		// make instance with empty number
 		phoneNumber = "";
@@ -52,9 +53,20 @@ public class PhoneNumber {
 	
 	/**
 	 * Constructs a phone number with a given number.
-	 * @param phoneNumber The Phone number string.
+	 * @param phoneNumber The phone number string.
+	 * @throws WrongSyntaxException Signal if the phone number string is wrong syntax.
 	 */
-	PhoneNumber(String phoneNumber) throws WrongSyntaxException
+	public PhoneNumber(String phoneNumber) throws WrongSyntaxException
+	{
+		setPhoneNumber(phoneNumber);
+	}
+	
+	/**
+	 * Initializes a newly created PhoneNumber object so that it represents the same
+	 * sequence of phone numbers as the argument.
+	 * @param phoneNumber the PhoneNumber object to copy.
+	 */
+	public PhoneNumber(PhoneNumber phoneNumber)
 	{
 		setPhoneNumber(phoneNumber);
 	}
@@ -70,7 +82,7 @@ public class PhoneNumber {
 	public void setPhoneNumber(String phoneNumber) throws WrongSyntaxException
 	{
 		// if right syntax,
-		if(phoneNumber.matches(PHONE_NUMBER_EXPRESSION))
+		if(phoneNumber.matches(PHONE_NUMBER_REGULAR_EXPRESSION))
 		{
 			// set phone number with removing all spaces
 			this.phoneNumber = phoneNumber;
@@ -198,19 +210,37 @@ public class PhoneNumber {
 		return this.phoneNumber.compareTo(phoneNumber.phoneNumber);
 	}
 	
+	public int hashCode()
+	{
+		int hashCode = 0, index = phoneNumber.length() - 1;
+		int checkCount = 0;
+		
+		while(index >= 0 && checkCount < 4)
+		{
+			char ch = phoneNumber.charAt(index);
+			if(ch >= '0' && ch <= '9')
+			{
+				checkCount++;
+				hashCode = (ch - '0') + hashCode * 10;
+			}
+			
+			--index;
+		}
+		
+		return hashCode;
+	}
+	
 	/**
 	 * Compares this phone number to the specified object. The result is true if
-	 * and only if the argument is instance of PhoneNumber and phone number is 
-	 * equals to this phone number.
+	 * and only if the argument is instance of PhoneNumber or String and phone 
+	 * number is equals to this phone number.
 	 * @param obj The object to compare this phone number against
-	 * @return true if the argument is instance of PhoneNumber and the phone
-	 * number is equals to this phone number, and false otherwise. 
+	 * @return true if the argument is instance of PhoneNumber or String and the 
+	 * phone number is equals to this phone number, and false otherwise. 
 	 */
 	public boolean equals(Object obj)
 	{
-		if(obj instanceof PhoneNumber)
-			return this.phoneNumber == ((PhoneNumber) obj).phoneNumber;
-		return false;
+		return this.phoneNumber.equals(obj.toString());
 	}
 	
 	
@@ -225,7 +255,7 @@ public class PhoneNumber {
 	 * @author Kang Seung Won 
 	 */
 	@SuppressWarnings("serial")
-	public class WrongSyntaxException extends Exception 
+	public static class WrongSyntaxException extends Exception 
 	{
 		/**
 		 * Constructs a exception representing the number is wrong syntax.
@@ -237,4 +267,5 @@ public class PhoneNumber {
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
+	
 }

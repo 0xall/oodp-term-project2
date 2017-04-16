@@ -1,0 +1,64 @@
+<HTML>
+<HEAD></HEAD>
+<style>
+    
+    body { background-color: #000000; color:#ffffff; font-size:10px; overflow:hidden; border-collapse: collapse;
+    font-family:sans-serif; }
+    table { width:100%; }
+    td { font-size:12.5px;  }
+    #messageList tr { height:20px; }
+    a { color:white; text-decoration: none;  }
+    .name { text-align:center; border:0px none; color:yellow}
+    .name td { color:yellow; font-weight:bold; }
+    .lastMessage { text-align:left; border-bottom:1px solid;}
+    div { width:98%; height:98%; overflow-y:hidden; }
+    #messageList { width:100%; height:288px; overflow-x:hidden; overflow-y:scroll; }
+    #screen { overflow:hidden; width:100%; height:100%; }
+    a:hover { color:cornflowerblue } 
+    .content {  }
+    .time { font-size: 9px; }
+    .receive { text-align:left; padding-left:10px; background-color:#daa520; color:black; }
+    .send { text-align:right; padding-right:10px; background-color:#6495ed; color:black; }
+</style>
+<body onload="sendNSCommand('loadMessagesOfAddress', '');">
+   <div>
+       <table>
+            <tr style="height:35px;">
+                <td style="text-align:left"><a href="#" style="color:lawngreen; font-weight:bold;" onclick="sendNSCommand('goMessageList');">&lt;- prev</a></td>
+            </tr>
+            <tr class="name">
+                <td style="height:30px" id="name">Kang Seung Won</td>
+            </tr>
+        </table>
+
+        <div id="messageList">
+        <table>
+            
+            <tr>
+                <td class="content receive">How are you??</td>
+            </tr>
+
+            <tr>
+                <td class="time receive">2017-02-03 00:43:33</td>
+            </tr>
+
+            <tr>
+                <td class="content send">Thanks!</td>
+            </tr>
+
+            <tr>
+                <td class="time send">2017-02-03 00:43:33</td>
+            </tr>
+        </table>
+        </div>
+
+        <tr class="lastMessage">
+            <form onsubmit="sendNSCommand('sendMessage', document.getElementById('messageText').value); sendNSMessage('loadMessagesOfAddress');
+              document.getElementById('messageText').value = ''; document.getElementById('messageText').focus(); return false;">
+                <td width=68%><input type="text" style="width:68%" id="messageText"></td>
+                <td width=30%><input type="submit" value="send" style="width:30%"></td>
+            </form>
+            </tr>
+    </div>
+</body>
+</HTML>
