@@ -1,9 +1,6 @@
 
 import java.io.IOException;
-
 import org.xml.sax.SAXException;
-
-
 import myOS.application.MessageProcedure;
 import myOS.application.MyPhoneApp;
 import phoneLibrary.address.MyAddress;
@@ -40,9 +37,7 @@ public class PhoneAddressApp extends MyPhoneApp {
 		try {
 			addressBook.loadAddressListFromXML(fileDirectory + ADDRESS_LIST_FILE);
 		} catch (IOException | SAXException | WrongFileFormatException e) { }
-		try {
-			addressBook.loadMessageListFromXML(fileDirectory + MESSAGE_LIST_FILE);
-		} catch (IOException | SAXException | WrongFileFormatException e) {}
+		
 		try {
 			addressBook.loadCallLogListFromXML(fileDirectory + CALLLOG_LIST_FILE);
 		} catch (IOException | SAXException | WrongFileFormatException e) {}
@@ -306,19 +301,12 @@ public class PhoneAddressApp extends MyPhoneApp {
 		try {
 			addressBook.saveAddressListToXML(fileDirectory + ADDRESS_LIST_FILE);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			addressBook.saveMessageListToXML(fileDirectory + MESSAGE_LIST_FILE);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		try {
 			addressBook.saveCallLogListToXML(fileDirectory + CALLLOG_LIST_FILE);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

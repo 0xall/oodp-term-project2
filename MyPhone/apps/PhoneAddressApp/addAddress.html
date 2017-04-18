@@ -1,0 +1,76 @@
+<HTML>
+<HEAD></HEAD>
+<style>
+    
+    body { background-color: #000000; color:#ffffff; font-size:10px; overflow:hidden; border-collapse: collapse;
+    font-family:sans-serif; }
+    table { width:100%; }
+    tr { height:30px; }
+    td { font-size:12.5px; color:#ffffff; }
+    #addressList tr { height:30px; border-bottom: 1px solid #ffffff; }
+    .name { text-align:center; color:darkkhaki; font-weight: bold; width:50%; }
+    .data { text-align:center;}
+    input { width:100%; }
+    div { width:98%; height:98%; overflow-y:hidden; }
+    #addressList { width:100%; height:345px; overflow-x:hidden; overflow-y:scroll; }
+    #screen { overflow:hidden; width:100%; height:100%; }
+    a { color:greenyellow; text-decoration: none;  }
+    a:hover { color:cornflowerblue } 
+</style>
+<body onload="sendNSCommand('loadAdd');">
+   <div>
+       <table>
+           <tr>
+               <td><a href="#" onclick="sendNSCommand('goList');"> &lt;- Prev</a></td>
+               <td><a href="#" onclick="sendNSCommand('addAddress', 
+               document.getElementById('input_name').value,
+               document.getElementById('input_phoneNumber1').value, 
+               document.getElementById('input_phoneNumber2').value, 
+               document.getElementById('input_phoneNumber3').value, 
+               document.getElementById('input_home_address').value, 
+               document.getElementById('input_office_address').value, 
+               document.getElementById('input_email').value, 
+               document.getElementById('input_url').value
+               );"> ADD</a></td>
+            </tr>
+        </table>
+
+        <div id="addressList">
+        <table>
+            <tr>
+                <td class="name">Name</td>
+                <td class="data"><input type="text" id="input_name"></td>
+            </tr>
+           <tr>
+                <td class="name">PhoneNumber 1</td>
+                <td class="data"><input type="text" id="input_phoneNumber1"></td>
+            </tr>
+            <tr>
+                <td class="name">PhoneNumber 2</td>
+                <td class="data"><input type="text" id="input_phoneNumber2"></td>
+            </tr>
+            <tr>
+                <td class="name">PhoneNumber 3</td>
+                <td class="data"><input type="text" id="input_phoneNumber3"></td>
+            </tr>
+            <tr>
+                <td class="name">Home Address</td>
+                <td class="data"><input type="text" id="input_home_address"></td>
+            </tr>
+            <tr>
+                <td class="name">Office Address</td>
+                <td class="data"><input type="text" id="input_office_address"></td>
+            </tr>
+            <tr>
+                <td class="name">Email</td>
+                <td class="data"><input type="text" id="input_email"></td>
+            </tr>
+            <tr>
+                <td class="name">URL</td>
+                <td class="data"><input type="text" id="input_url"></td>
+            </tr>
+        </table>
+        </div>
+    </div>
+</body>
+</HTML>

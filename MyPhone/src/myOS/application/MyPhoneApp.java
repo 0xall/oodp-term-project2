@@ -35,21 +35,33 @@ abstract public class MyPhoneApp {
 	////////////////////////////////////////////////////////////////////////////
 	/* METHODS */
 	
+	/**
+	 * Sets the operating system of the application.
+	 */
 	public void SetOS(MyOS os)
 	{
 		this.os = os;
 	}
 	
+	/**
+	 * Change HTML display.
+	 */
 	public void requestDisplay(String webFile)
 	{
 		os.Display(webFile);
 	}
 	
+	/**
+	 * Executes javascript in the HTML.
+	 */
 	public void executeJavascript(String javascript)
 	{
 		os.getDisplayManager().executeJavascript(javascript);
 	}
 	
+	/**
+	 * Processes message events.
+	 */
 	public void processMessage(String id, Object[] parameters)
 	{
 		if(messageProcedures.containsKey(id))
@@ -82,21 +94,33 @@ abstract public class MyPhoneApp {
 		status = APP_STATUS_EXECUTED;
 	}
 	
+	/**
+	 * Returns the status of the application.
+	 */
 	public int getStatus()
 	{
 		return status;
 	}
 	
+	/**
+	 * Returns the operating system of the application.
+	 */
 	public MyOS getOS()
 	{
 		return os;
 	}
 	
+	/**
+	 * Returns the icon of the application.
+	 */
 	public static ImageIcon getIconImage()
 	{
 		return new ImageIcon(appDirectory + "/" + "icon.gif");
 	}
 	
+	/**
+	 * Returns the directory of the application.
+	 */
 	public String getAppDirectory()
 	{
 		return appDirectory;

@@ -175,7 +175,7 @@ public abstract class CommunicationObject implements Comparable<CommunicationObj
 				communicationTime.get(Calendar.YEAR), 
 				communicationTime.get(Calendar.MONTH) + 1,
 				communicationTime.get(Calendar.DATE), 
-				communicationTime.get(Calendar.HOUR),
+				communicationTime.get(Calendar.HOUR_OF_DAY),
 				communicationTime.get(Calendar.MINUTE), 
 				communicationTime.get(Calendar.SECOND));
 	}

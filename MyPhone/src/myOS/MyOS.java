@@ -58,7 +58,9 @@ public class MyOS implements WebBrowserListener {
 	////////////////////////////////////////////////////////////////////////////
 	/* METHODS */
 	
-	// change the display in the operating system
+	/**
+	 *  change the display in the operating system
+	 */
 	public void Display(String path)
 	{
 		String absolutePath;
@@ -72,6 +74,9 @@ public class MyOS implements WebBrowserListener {
 		
 	}
 	
+	/**
+	 * execute an application.
+	 */
 	public void executeApp(String appName, String parameter)
 	{
 		try
@@ -93,6 +98,9 @@ public class MyOS implements WebBrowserListener {
 		}
 	}
 	
+	/**
+	 * load an application in the operating system.
+	 */
 	public void loadApp(Class<? extends MyPhoneApp> app, String appName)
 	{
 		applications.add(app);
@@ -100,6 +108,10 @@ public class MyOS implements WebBrowserListener {
 	}
 
 	@Override
+	/**
+	 * Processes message events. The operating system sends message to the
+	 * application that is current executed.
+	 */
 	public void commandReceived(WebBrowserCommandEvent e) {
 		String command = e.getCommand();
 		Object[] parameters = e.getParameters();
@@ -169,31 +181,49 @@ public class MyOS implements WebBrowserListener {
 		return displayManager;
 	}
 	
+	/**
+	 * Get applications list in the operating system.
+	 */
 	public ArrayList<Class<? extends MyPhoneApp> > getApplications()
 	{
 		return applications;
 	}
 	
+	/**
+	 * Get application icon.
+	 */
 	public ImageIcon getApplicationImageIcon(String applicationName)
 	{
 		return new ImageIcon(rootPath + "/apps/" + applicationName + "/icon.gif");
 	}
 	
+	/**
+	 * Get the application name.
+	 */
 	public String getApplicationName(int index)
 	{
 		return applicationName.get(index);
 	}
 	
+	/**
+	 * Executes main application.
+	 */
 	public void executeMainApp()
 	{
 		executeApp(applications.get(0).getName(), "");
 	}
 	
+	/**
+	 * Returns the root path of the operating system.
+	 */
 	public String getRootPath()
 	{
 		return rootPath;
 	}
 	
+	/**
+	 * Shut down the operating system.
+	 */
 	public void shutdown()
 	{
 		executingApp.exit();

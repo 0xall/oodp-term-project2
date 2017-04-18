@@ -3,8 +3,6 @@ import java.util.LinkedList;
 
 import org.xml.sax.SAXException;
 
-import com.sun.org.apache.xml.internal.serializer.utils.Messages;
-
 import myOS.application.MessageProcedure;
 import myOS.application.MyPhoneApp;
 import phoneLibrary.address.MyAddress;
